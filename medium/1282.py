@@ -5,11 +5,8 @@ groupSizes = [3, 3, 2, 3, 3, 2, 3, 1, 3, 1, 1, 2, 2]
 
 class Solution:
     def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
-        d = {}
         out = []
-
-        for num in groupSizes:
-            d[num] = []
+        d = {j: [] for j in groupSizes}
 
         for key, value in enumerate(groupSizes):
             d[value].append(key)
