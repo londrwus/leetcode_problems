@@ -18,4 +18,4 @@ class Solution:
 
 
 result = Solution().numIdenticalPairs(nums=nums)
-print(result)
+print(result)  # 4

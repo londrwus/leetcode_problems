@@ -1,23 +1,21 @@
 from functools import lru_cache
 
-
-@lru_cache()
-def f(x, stop):
-    if x > stop:
-        return 0
-    if x == stop:
-        return 1
-
-    return f(x + 1, stop) + f(x + 2, stop)
-
-
 n = 38
 
 
 class Solution:
     def climbStairs(self, n: int) -> int:
-        return f(0, n)
+        return self.helper(0, n)
+
+    @lru_cache()
+    def helper(self, x: int, stop: int) -> int:
+        if x > stop:
+            return 0
+        if x == stop:
+            return 1
+
+        return self.helper(x + 1, stop) + self.helper(x + 2, stop)
 
 
 result = Solution().climbStairs(n=n)
-print(result)
+print(result)  # 63245986
